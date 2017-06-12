@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="col-md-8">
+    <h3>
+      All Applications
+    </h3>
+    <% @registered_applications.each do |app| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to app.name, app %>
+          </h4>
+          <% end %>
+        </div>
+      </div>
+  </div>
+</div>
