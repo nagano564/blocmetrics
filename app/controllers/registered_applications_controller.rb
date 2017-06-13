@@ -1,6 +1,7 @@
 class RegisteredApplicationsController < ApplicationController
   def show
     @registered_application = RegisteredApplication.find(params[:id])
+  
   end
 
   def index

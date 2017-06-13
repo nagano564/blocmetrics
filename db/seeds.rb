@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Event.destroy_all
+RegisteredApplication.destroy_all
 
 10.times do
   RegisteredApplication.create!(
@@ -14,5 +16,16 @@
 end
 registered_applications = RegisteredApplication.all
 
+def add_event
+  10.times do
+    Event.create!(
+    name: Faker::Internet.domain_word,
+    registered_application: registered_applications.sample
+    )
+  end
+end
+events = Event.all
+
 puts "Seed Finished"
-puts "#{RegisteredApplication.count} posts created"
+puts "#{Event.count} events created"
+puts "#{RegisteredApplication.count} sites created"
