@@ -20,7 +20,7 @@ registered_applications = RegisteredApplication.all
 10.times do
   Event.create!(
   name: Faker::Internet.domain_word,
-  registered_applications_id: registered_applications.pluck(:id).sample
+  registered_application_id: registered_applications.pluck(:id).sample
   )
 end
 
