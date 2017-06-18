@@ -16,14 +16,14 @@ RegisteredApplication.destroy_all
 end
 registered_applications = RegisteredApplication.all
 
-def add_event
-  10.times do
-    Event.create!(
-    name: Faker::Internet.domain_word,
-    registered_application: registered_applications.sample
-    )
-  end
+
+10.times do
+  Event.create!(
+  name: Faker::Internet.domain_word,
+  registered_applications_id: registered_applications.pluck(:id).sample
+  )
 end
+
 events = Event.all
 
 puts "Seed Finished"
